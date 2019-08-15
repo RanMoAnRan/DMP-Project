@@ -91,7 +91,7 @@ object MakeTagsProcessor extends Processor {
         val idsMap: Map[String, String] = getIds(row)
 
         // 每条数据主标识符ID
-        val mainId = UUID.randomUUID().toString
+        val mainId = row.getAs[String]("uuid") //UUID.randomUUID().toString
 
         IdsWithTags(mainId, idsMap, tagsMap.toMap)
       }
