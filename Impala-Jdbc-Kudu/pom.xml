@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>DMP-Project</artifactId>
+        <groupId>com.jing</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Impala-Jdbc-Kudu</artifactId>
+
+    <hive.version>1.1.0-cdh5.14.0 </hive.version>
+
+    <!--impala的jdbc操作-->
+    <dependency>
+        <groupId>com.cloudera</groupId>
+        <artifactId>ImpalaJDBC41</artifactId>
+        <version>2.5.42</version>
+    </dependency>
+
+    <!--Caused by : ClassNotFound : thrift.protocol.TPro-->
+    <dependency>
+        <groupId>org.apache.thrift</groupId>
+        <artifactId>libfb303</artifactId>
+        <version>0.9.3</version>
+        <type>pom</type>
+    </dependency>
+
+    <!--Caused by : ClassNotFound : thrift.protocol.TPro-->
+    <dependency>
+        <groupId>org.apache.thrift</groupId>
+        <artifactId>libthrift</artifactId>
+        <version>0.9.3</version>
+        <type>pom</type>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.hive</groupId>
+        <artifactId>hive-jdbc</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-service-rpc</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-service</artifactId>
+            </exclusion>
+        </exclusions>
+        <version>${hive.version}</version>
+    </dependency>
+
+</project>
